@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SPA Salon</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!-- bootstrap icons link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <style>
+      /* les button sont des boutons ronds de type fenetre dans mac */
+      .w3-button {
+          width: 20px;
+          height: 20px;
+          padding: 0px;
+          margin: 0px;
+      }
+
+      /* les input sont des barres de recherche avec un logo lupe et le texte 'Recherche' a l'interieur du cadre   */
+      .w3-input {
+          width: 200px;
+          height: 20px;
+          padding: 0px;
+          margin: 0px;
+      }
+
+      /* rendre limage du logo de l'entreprise plus petit et discret */
+      #logo {
+          width: 200px;
+          height: 200px;
+      }
+
+      /* rendre la police de menu-page plus petite et avec un espace entre les mots */
+      #menu-page {
+          font-size: 2px;
+      }
+
+
+
+      .group {
+          display: flex;
+          line-height: 28px;
+          align-items: center;
+          position: relative;
+          max-width: 190px;
+      }
+
+      .input {
+          height: 40px;
+          line-height: 28px;
+          padding: 0 1rem;
+          width: 100%;
+          padding-left: 2.5rem;
+          border: 2px solid transparent;
+          border-radius: 8px;
+          outline: none;
+          background-color: #D9E8D8;
+          color: #0d0c22;
+          box-shadow: 0 0 5px #C1D9BF, 0 0 0 10px #f5f5f5eb;
+          transition: .3s ease;
+      }
+
+      .input::placeholder {
+          color: #777;
+      }
+
+      .icon {
+          position: absolute;
+          left: 1rem;
+          fill: #777;
+          width: 1rem;
+          height: 1rem;
+      }
+
+      button {
+          /* rendre le bouton plus petit */
+          height: 30px;
+          font-family: inherit;
+          font-size: 20px;
+          background: royalblue;
+          color: white;
+          padding: 0.7em 1em;
+          padding-left: 0.9em;
+          display: flex;
+          align-items: center;
+          border: none;
+          border-radius: 16px;
+          overflow: hidden;
+          transition: all 0.2s;
+      }
+
+      button span {
+          display: block;
+          margin-left: 0.3em;
+          transition: all 0.3s ease-in-out;
+      }
+
+      button svg {
+          display: block;
+          transform-origin: center center;
+          transition: transform 0.3s ease-in-out;
+      }
+
+      button:hover .svg-wrapper {
+          animation: fly-1 0.6s ease-in-out infinite alternate;
+      }
+
+      button:hover svg {
+          transform: translateX(1.2em) rotate(45deg) scale(1.1);
+      }
+
+      button:hover span {
+          transform: translateX(5em);
+      }
+
+      button:active {
+          transform: scale(0.95);
+      }
+
+      @keyframes fly-1 {
+          from {
+              transform: translateY(0.1em);
+          }
+
+          to {
+              transform: translateY(-0.1em);
+          }
+      }
+      
+      
+      #menu-page {
+          /* Le menu-page est un menu horizontal avec un espace entre les mots */
+          padding: 0px;
+          margin: 0px;
+
+          /*Il est espacé de 10px du haut et du bas */
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          /*La police est de type Arial et de couleur noire */
+          font-family: Arial, Helvetica, sans-serif;
+          color: #000000;
+          font-size: 17px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <div class="w3-top" >
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        
+        <div class="w3-left-align w3-third" id="barre-p1">
+
+          <div class="w3-containe w3-third w3-right-align"  id="button-mac">
+              <div class="w3-container w3-third">
+                  <button class="w3-button w3-circle w3-red"></button>
+              </div>
+
+              <div class="w3-container w3-third">
+                  <button class="w3-button w3-circle w3-yellow"></button>
+              </div>
+
+              <div class="w3-container w3-third">
+                  <button class="w3-button w3-circle w3-green"></button>
+              </div>
+          </div>
+
+          <div class="w3-container w3-third w3-center"  id="menu-ic">
+              <!-- Menu icon -->
+              <span class="material-symbols-outlined">
+                  team_dashboard
+              </span>
+          </div>
+
+          <div class="w3-container w3-third w3-left-align" id="chevrons-ic">
+              <!-- Chevron fermé icon -->
+              <span class="material-symbols-outlined">
+                  chevron_left
+              </span>
+
+              <!-- Chevron ouvert  icon -->
+              <span class="material-symbols-outlined w3-center">
+                  chevron_right
+              </span>
+          </div>
+        </div>
+
+        <div class="w3-container w3-third w3-round-xxlarge"  id="barre-p2">
+          <div class="group">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <g>
+                      <path
+                          d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                      </path>
+                  </g>
+              </svg>
+              <input placeholder="Search" type="search" class="input ">
+          </div>
+        </div>
+
+        <div class="w3-container w3-third w3-right-align" id="barre-p3">
+          <span class="material-symbols-outlined">
+              add
+          </span>
+          <span class="material-symbols-outlined">
+              content_copy
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">  
+      <img class="w3-image" src="https://coquillade.fr/_novaimg/4698292-1492701_0_0_4793_3195_2200_1467.rc.jpg" alt="Architecture" width="1500" height="800">
+      <div class="w3-display-middle w3-margin-top w3-center">
+        <div class="w3-display-container w3-content">
+          <div class="w3-row">
+
+              <div class="w3-quarter w3-left-align">
+                <div class="w3-container" style="width: auto; height: auto;" id="logo">
+                  <!-- Logo de l'entreprise avec un lien de l"image -->
+                  <img src="https://www.hicom.fr/wp-content/uploads/2017/09/Logo_TV_2015.png" class="w3-circle"
+                      alt="Avatar" style="width:50%">
+                </div>
+              </div>
+
+              <div class="w3-threequarter" style="width: auto; height: auto;" id="menu-page">
+                <a href="#aceuil" class="w3-padding ">Acceuil</a>
+                <a href="#propos" class="w3-padding ">À propos</a>
+                <a href="#contact" class="w3-padding">Contact</a>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
+
+      <div class="w3-container w3-padding-32" id="aceuil">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Acceuil</h3>
+      </div>
+
+      <div class="w3-row-padding">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">SPA</div>
+            <img src="https://www.les4elements36.fr/images/common/bienEtre/13/image_13.png" alt="House" style="width:100%">
+          </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Jacuzzi</div>
+            <img src="https://www.hotelzoologie.com/wp-content/uploads/2021/05/SPA-6-1.jpg.webp " alt="House" style="width:100%">
+          </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Hammam</div>
+            <img src="https://hotel-balthazar.com/_novaimg/4879446-1476588_0_0_3000_2250_1200_900.jpg" alt="House" style="width:100%">
+          </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">Sauna</div>
+            <img src="https://www.enpaysdelaloire.com/sites/default/files/styles/sit/public/sit/images/LOIPDL085V5144UQ/spa-auxbainsmarie-lesessarts-EeB-85-loi-2.jpg?itok=jdRqyNoj" alt="House" style="width:100%">
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-container w3-padding-32" id="propos">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">A props</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+
+      <div class="w3-row-padding w3-grayscale">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://img.le-dictionnaire.com/docteur.jpg" alt="John" style="width:100%">
+          <h3>John Doe</h3>
+          <p class="w3-opacity">CEO & Founder</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block" style="width: 100%; height: auto;" onclick="document.getElementById('modalCont').style.display='block'">Contact</button></p>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom w3-center">
+          <img src="https://st.depositphotos.com/1771835/2739/i/450/depositphotos_27390647-stock-photo-african-american-doctor-happy-smiling.jpg" alt="Jane" style="width:67%">
+          <h3>Jane Doe</h3>
+          <p class="w3-opacity">Doctor</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block" style="width: 100%; height: auto;" onclick="document.getElementById('modalCont').style.display='block'">Contact</button></p>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom w3-center">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiF52i_uqDlWUFCMJegKp5jOyQnKFZKAfQajFk9ufnAn9K1MG_jtgy2zSWuTMHD4PSZ_M&usqp=CAU" alt="Mike" style="width:67%">
+          <h3>Mike Ross</h3>
+          <p class="w3-opacity">Doctor</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block" style="width: 100%; height: auto;" onclick="document.getElementById('modalCont').style.display='block'">Contact</button></p>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom w3-right-align">
+          <img src="https://thumbs.dreamstime.com/b/jeune-homme-de-m%C3%A9decin-128387559.jpg" alt="Dan" style="width:67%">
+          <h3>Dan Star</h3>
+          <p class="w3-opacity">Doctor</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block" style="width: 100%; height: auto;" onclick="document.getElementById('modalCont').style.display='block'">Contact</button></p>
+        </div>
+      </div>
+
+      <div class="w3-container w3-padding-32" id="contact">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+        <form action="form_w3css.html" class="w3-container w3-card-4 w3-margin "  style="width:100%">
+          <h4 class="w3-center">Nous contacter</h4>
+          
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="first" type="text" placeholder="Prénom">
+            </div>
+          </div>
+      
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="last" type="text" placeholder="Nom">
+            </div>
+          </div>
+      
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="email" type="text" placeholder="Courriel">
+            </div>
+          </div>
+      
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="phone" type="text" placeholder="Mobile">
+            </div>
+          </div>
+      
+          <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="message" type="text" placeholder="Message">
+            </div>
+          </div>
+      
+          <p class="w3-center">
+            <button class="w3-button w3-section w3-border" style="width: 10%;height: auto; "> Envoyer </button>
+          </p>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Footer --> 
+    <footer class="text-center text-white w3-padding-16" style="background-color: #f1f1f1;">
+      <!-- Grid container -->
+      <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <!-- Github -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- importe link sur les icones -->
+      
+    
+      <!-- Copyright -->
+      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">SPA</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <div id="modalCont" class="w3-modal w3-animate-opacity">
+      <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:600px">
+        <header class="w3-container  w3-center w3-padding-32">
+          <span onclick="document.getElementById('modalCont').style.display='none'" class="w3-button  w3-xlarge w3-display-topright">×</span>
+          <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Contact</h2>
+        </header>
+        <div class="w3-container">
+          <p><label><i class="fa fa-user"></i> Nom</label></p>
+          <input class="w3-input w3-border" type="text" placeholder="Nom">
+          <p><label><i class="fa fa-user"></i> Prénom</label></p>
+          <input class="w3-input w3-border" type="text" placeholder="Prénom">
+          <p><label><i class="fa fa-envelope"></i> Courriel</label></p>
+          <input class="w3-input w3-border" type="text" placeholder="Courriel">
+          <p><label><i class="fa fa-phone"></i> Téléphone</label></p>
+          <input class="w3-input w3-border" type="text" placeholder="Téléphone">
+          <p><label><i class="fa fa-pencil"></i> Message</label></p>
+          <input class="w3-input w3-border" type="text" placeholder="Message">
+          <button class="w3-button w3-block w3-border w3-padding-16 w3-section w3-right" style="width: auto; height: auto;">Envoyer</button>
+          <button class="w3-button w3-border w3-section" style="width: auto; height: auto;" onclick="document.getElementById('modalCont').style.display='none'">Annuler</button>
+          <p class="w3-right">Besoin d'aide? <a href="#">Nous contacter</a></p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
